@@ -1,0 +1,7 @@
+<view class="page-index">
+    <view class="item-wrapper">
+        <view class="item" wx:for='{{list}}' wx:key='index' data-path='{{item.path}}' bind:tap='routeLink'>
+            {{item.text}}
+        </view>
+    </view>
+</view>

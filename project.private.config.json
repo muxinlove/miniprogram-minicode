@@ -1,0 +1,23 @@
+{
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "分页加载",
+          "pathName": "pages/infinite-scroll/index",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}
