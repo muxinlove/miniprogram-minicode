@@ -1,4 +1,36 @@
-.intro {
-  margin: 30px;
-  text-align: center;
+.module-infinite-scroll {
+}
+.scroll-box {
+  height: 500rpx;
+  border: 1rpx solid;
+}
+.item {
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+.item + .item {
+  margin-top: 10rpx;
+}
+.item .title {
+  font-weight: 500;
+}
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: height 800;
+  height: 0;
+  overflow: hidden;
+}
+.loading.active{
+  height: 40rpx;
+  margin: 8rpx 0;
+}
+.loading .image {
+  width: 40rpx;
+  height: 40rpx;
+}
+.loading .text {
+  font-size: 34rpx;
+  margin-left: 10rpx;
 }

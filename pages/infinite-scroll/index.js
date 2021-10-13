@@ -1,22 +1,40 @@
-import api from '../../api/index'
+import api from "../../api/index";
+
+const App = getApp();
 
 Page({
   data: {
-    list: [{
-        text: '无限滚动/分页滚动页',
-        path: '/pages/infinite-scroll/index'
-      },
-      {
-        text: '多标签页',
-        path: '/pages/multiple-tabs/index'
-      }
-    ]
+    pagination: {
+      page: 0,
+      size: 10,
+    },
+    products: [],
   },
   onLoad() {
-    this._getProductList()
+    this._getProductList();
   },
-  async _getProductList() {
-    const products = await api.getProductList()
-    console.log('products', products)
+  async _getProductList(reset) {
+    // let {
+    //   pagination: { page, size },
+    // } = this.data;
+    // if (reset) {
+    //   page = 1;
+    // }
+    // const params = {
+    //   page: page++,
+    //   size,
+    // };
+    const data = await api.getProductList();
+    console.log("products", data);
+    const { products } = this.data;
+    this.setData({
+      products: [...products, ...data],
+    });
   },
-})
+  async onBindLoadMore() {
+    setTimeout(async () => {
+      await this._getProductList();
+      App.rss.done("hideScrollLoading");
+    }, 1000);
+  },
+});

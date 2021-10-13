@@ -1,1 +1,4 @@
-<view class="intro"></view>
+<view class="page-infinite-scroll">
+  <w-infinite-scroll list='{{products}}'
+                     bind:loadMore='onBindLoadMore' />
+</view>

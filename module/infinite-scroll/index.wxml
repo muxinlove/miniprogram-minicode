@@ -1,1 +1,25 @@
-<view class="intro">欢迎使用代码片段，可在控制台查看代码片段的说明和文档</view>
+<view class="module-infinite-scroll">
+  <slot name="header"></slot>
+  <scroll-view class="scroll-box"
+               scroll-y
+               bind:scrolltolower='bindScrollToLower'>
+    <block wx:if='{{list.length}}'>
+      <view class="item"
+            wx:for='{{list}}'
+            wx:key='id'>
+        <view class="title">{{item.title}}</view>
+        <view class="desc">{{item.desc}}</view>
+      </view>
+      <view class="loading {{showLoading?'active':''}}">
+        <image class='image'
+               src='../../images/loading.gif'></image>
+        <text class="text">loading</text>
+      </view>
+    </block>
+    <block wx:else>
+      无数据
+    </block>
+
+  </scroll-view>
+  <slot name='footer'></slot>
+</view>
